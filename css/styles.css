@@ -1,0 +1,105 @@
+*{
+    --colorbase : #2A2529;
+    --colorlight : #F3F0E7;
+    --colorcontrast : #EC5E27;
+    --primaryfont : "Outfit", sans-serif;
+    --secondfont : "Urbanist", sans-serif;
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+}
+
+body{
+    font-family: var(--secondfont);
+    background-color: var(--colorbase);
+    color: var(--colorlight);
+}
+
+header {
+    display : flex;
+    align-items: center;
+
+    background-color: var(--colorbase);
+    color: var(--colorlight);
+    font-family : var(--primaryfont);
+    padding: 1rem 2rem;
+    justify-content: space-between;
+    
+}
+
+header img {
+    width: 32px;
+    height: 32px;
+
+}
+
+nav {
+    display: flex;
+}
+
+nav ul{
+    display: flex;
+    gap: 1rem;
+    list-style: none;
+    align-items: flex-end;
+}
+
+nav a{
+    text-decoration: none;
+    color: var(--colorlight);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+}
+
+.menu-btn {
+    display: none;
+}
+
+.menu-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+
+    .menu-btn {
+        display: block;
+        color: white;
+        background: none;
+        border: none;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    nav {
+        display: none;
+    }
+    
+    nav.active {
+        display: block;
+        position: absolute;
+        top: 100%;
+        right: 2rem;
+        background-color: var(--colorbase);
+        padding: 1rem;
+    }
+
+    nav.active ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    }
+
+    header{
+        position : relative;
+    }
+
+                
+}

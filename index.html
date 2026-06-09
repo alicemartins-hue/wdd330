@@ -3,18 +3,31 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>WDD330 Final Project - Movie Picker</title>
+    <title>Movie Picker</title>
     <meta name="description" content="WDD330 final project">
     <meta name="author" content="Alice Candido Martins">
 
-    <link rel="stylesheet" href="styles.css">
-
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="images/popcorn-movie-cinema-svgrepo-com.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+    
   </head>
   <body>
     <header>
-        /-- icon --/
-        <h1>Movie Picker</h1>
-        <nav>
+        <div class="logo">
+            <img src="images/popcorn-movie-cinema-svgrepo-com.svg" alt="icon">
+            <h1>Movie Picker</h1>
+        </div>
+
+        <button class="menu-btn" id="menu-btn">
+            ☰
+        </button>
+
+        <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="movie-details.html">Movies</a></li>
@@ -76,6 +89,8 @@
             © 2026 Movie Picker | Alice Candido Martins | BYU-Pathway WDD330
         </p>
     </footer>
+
+    <script src="js/button.js"></script>
   </body>
 </html>
 
