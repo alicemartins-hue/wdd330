@@ -2,21 +2,26 @@ import { getMoviesByGenre } from "./apiService.js";
 
 
 export function displayMovies(movies) {
+
+    const moviesSection = document.getElementById("moviesSection");
+
     const container = document.getElementById("movieContainer");
+
+    moviesSection.style.display = "block";
+
 
     container.innerHTML = "";
 
     movies.forEach(movie => {
-        const card = document.createELement("div");
-        card.classlist.add("movie-card");
+        const card = document.createElement("div");
+        card.classList.add("movie-card");
         card.innerHTML = `
             <img
-            src="https://image.tmdb.org/t/p/300${movie.poster_path}"
+            src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
             alt="${movie.title}"
             >
 
             <h3>${movie.title}</h3>
-            <p>${movie.release_date || "Release date unavailable"}</p>
             `;
         
         container.appendChild(card);
@@ -30,7 +35,7 @@ export function displayGenres(genres) {
 
     container.innerHTML = "";
 
-    genres.forEach(genre => {
+    genres.slice(0, 5).forEach(genre => {
 
         const button = document.createElement("button");
 
@@ -40,6 +45,7 @@ export function displayGenres(genres) {
         button.addEventListener("click", async () => {
 
             const movies = await getMoviesByGenre(genre.id);
+            console.log(movies);
 
             displayMovies(movies);
         });
@@ -49,4 +55,17 @@ export function displayGenres(genres) {
     });
 
 }
+
+button.addEventListener("click", async () => {
+
+    console.log("clicou em", genre.name);
+
+    const movies =
+        await getMoviesByGenre(genre.id);
+
+    console.log(movies);
+
+    displayMovies(movies);
+
+});
 
