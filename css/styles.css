@@ -110,6 +110,18 @@ nav a:hover::after {
     padding: 0.5rem;
 }
 
+.cursor-glow {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    filter: blur(50px);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+}
+
 
 #searchInput {
     padding: 0.8rem 1.5rem;
@@ -140,7 +152,17 @@ nav a:hover::after {
     display: none;
 }
 
+#movieContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
 
+#popularmovieContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
 
 
 

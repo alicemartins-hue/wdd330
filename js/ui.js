@@ -12,7 +12,7 @@ export function displayMovies(movies) {
 
     container.innerHTML = "";
 
-    movies.forEach(movie => {
+    movies.slice(0,6).forEach(movie => {
         const card = document.createElement("div");
         card.classList.add("movie-card");
         card.innerHTML = `
@@ -56,16 +56,80 @@ export function displayGenres(genres) {
 
 }
 
-button.addEventListener("click", async () => {
+export function displayRandomMovie(movie) {
 
-    console.log("clicou em", genre.name);
+    const container =
+        document.getElementById("randomMovieContainer");
 
-    const movies =
-        await getMoviesByGenre(genre.id);
+    container.innerHTML = "";
 
-    console.log(movies);
+    const card = document.createElement("div");
 
-    displayMovies(movies);
+    card.classList.add("movie-card");
 
-});
+    card.innerHTML = `
+        <img
+            src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+            alt="${movie.title}"
+        >
 
+        <h3>${movie.title}</h3>
+    `;
+
+    container.appendChild(card);
+
+}
+
+
+
+export function displayPopularMovies(movies) {
+
+    const container =
+        document.getElementById("popularmovieContainer");
+
+    container.innerHTML = "";
+
+    movies.slice(0, 6).forEach(movie => {
+
+        const card = document.createElement("div");
+        card.classList.add("movie-card");
+
+        card.innerHTML = `
+            <img
+                src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+            >
+
+            <h3>${movie.title}</h3>
+        `;
+
+        container.appendChild(card);
+    });
+
+}
+
+export function displayHeroMovie(movies) {
+
+    const movie = document.getElementById("hero-search");
+
+    const container = document.getElementById("heroMovie");
+
+    movie.style.display = "block";
+
+
+    container.innerHTML = "";
+
+    movies.slice(0, 6).forEach(movie => {
+        const card = document.createElement("div");
+        card.classList.add("movie-card");
+        card.innerHTML = `
+            <img
+            src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+            alt="${movie.title}"
+            >
+
+            <h3>${movie.title}</h3>
+            `;
+
+        container.appendChild(card);
+    })
+}
