@@ -15,7 +15,7 @@ export async function getGenres() {
 export async function getMoviesByGenre(genreId) {
 
     const response = await fetch(
-        `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}`
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&with_genres=${genreId}&with_origin_country=US`
     );
 
     const data = await response.json();
@@ -39,7 +39,7 @@ export async function searchMovies(query) {
 export async function getPopularMovies() {
 
     const response = await fetch(
-        `${BASE_URL}/movie/popular?api_key=${API_KEY}`
+        `${BASE_URL}/discover/movie?api_key=${API_KEY}&sort_by=popularity.desc&with_origin_country=US`
     );
 
     const data = await response.json();

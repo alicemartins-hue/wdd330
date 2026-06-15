@@ -84,3 +84,67 @@ document.addEventListener("mousemove", (e) => {
     glow.style.left = e.clientX + "px";
     glow.style.top = e.clientY + "px";
 });
+
+
+//css animation efects//
+window.addEventListener("load", () => {
+    const container = document.getElementById("popcorn-container");
+
+    for (let i = 0; i < 50; i++) {
+        const popcorn = document.createElement("div");
+
+        popcorn.classList.add("popcorn");
+        popcorn.textContent = "🍿";
+
+        popcorn.style.left = Math.random() * 100 + "vw";
+        popcorn.style.animationDelay = Math.random() * 2 + "s";
+        popcorn.style.fontSize = 1 + Math.random() * 2 + "rem";
+
+        container.appendChild(popcorn);
+
+        setTimeout(() => {
+            popcorn.remove();
+        }, 6000);
+    }
+});
+
+
+/*Watchlist button */
+document.addEventListener("click", (e) => {
+
+    if (e.target.classList.contains("save-btn")) {
+
+        console.log("CLICK");
+
+    }
+
+});
+
+const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
+localStorage.setItem("watchlist", JSON.stringify(watchlist));
+
+document.addEventListener("click", (e) => {
+
+    if (e.target.classList.contains("save-btn")) {
+
+        if (e.target.classList.contains("saved")) {
+
+            // Dessalva
+            e.target.classList.remove("saved");
+            e.target.textContent = "♡";
+
+            console.log("Filme removido da watchlist");
+
+        } else {
+
+            // Salva
+            e.target.classList.add("saved");
+            e.target.textContent = "♡";
+
+            console.log("Filme adicionado à watchlist");
+
+        }
+
+    }
+
+});

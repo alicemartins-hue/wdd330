@@ -22,6 +22,7 @@ export function displayMovies(movies) {
             >
 
             <h3>${movie.title}</h3>
+            <button class="save-btn" data-id="${movie.id}">♡</button>
             `;
         
         container.appendChild(card);
@@ -74,6 +75,7 @@ export function displayRandomMovie(movie) {
         >
 
         <h3>${movie.title}</h3>
+        <button class="save-btn" data-id="${movie.id}">♡</button>
     `;
 
     container.appendChild(card);
@@ -100,6 +102,7 @@ export function displayPopularMovies(movies) {
             >
 
             <h3>${movie.title}</h3>
+            <button class="save-btn" data-id="${movie.id}">♡</button>
         `;
 
         container.appendChild(card);
@@ -128,6 +131,7 @@ export function displayHeroMovie(movies) {
             >
 
             <h3>${movie.title}</h3>
+            <button class="save-btn" data-id="${movie.id}">♡</button>
             `;
 
         container.appendChild(card);
