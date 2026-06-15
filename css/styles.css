@@ -66,6 +66,10 @@ nav a:hover::after {
     width: 100%;
 }
 
+.shine{
+    color: var(--colorcontrast);
+}
+
 .logo {
     display: flex;
     align-items: center;
