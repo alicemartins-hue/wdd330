@@ -144,6 +144,15 @@ nav a:hover::after {
     }
 }
 
+footer {
+    background-color: black;
+    padding: 2rem;
+    text-align: center;
+
+    box-shadow: 0 -10px 25px rgba(0, 0, 0, .4)
+
+}
+
 
 #searchInput {
     padding: 0.8rem 1.5rem;
@@ -179,6 +188,32 @@ nav a:hover::after {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
 }
+
+.hero-search{
+    margin: 0 0 2rem 1rem;
+}
+
+.random-movie {
+    padding: 2rem;
+}
+
+.random-movie button{
+    padding: .6rem;
+    border: transparent;
+    background-color: var(--colorcontrast);
+    border-radius: 2rem;
+    box-shadow: 0px 0px .9rem .2rem var(--colorbase);
+    cursor: pointer;
+    color: var(--colorlight);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#randomMovieBtn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(240, 113, 63, 0.4);
+    color: var(--colorbase);
+}
+
 
 /* Popular Movies Container */
 .popular-movies {
@@ -240,6 +275,46 @@ nav a:hover::after {
     color: white;
 }
 
+
+/* Genre Buttons */
+.genres{
+    background-color: var(--colorlight);
+    color: var(--colorcontrast);
+    padding: 5rem;
+}
+#genreContainer button {
+    padding: .5rem;
+    border-radius: 1rem;
+    margin: .5rem 1rem;
+    border: 2px solid #f0713f;
+    border-color: var(--colorcontrast);
+    background: transparent;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s ease;
+    z-index: 1;
+}
+
+#genreContainer button::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 0;
+    background: #f0713f;
+    transition: height 0.4s ease;
+    z-index: -1;
+}
+
+#genreContainer button:hover::before {
+    height: 100%;
+}
+
+#genreContainer button:hover {
+    color: white;
+}
 
 
 

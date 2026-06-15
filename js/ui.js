@@ -29,14 +29,14 @@ export function displayMovies(movies) {
     })
 }
 
-
+/* Genre Buttons display function*/
 export function displayGenres(genres) {
 
     const container = document.getElementById("genreContainer");
 
     container.innerHTML = "";
 
-    genres.slice(0, 5).forEach(genre => {
+    genres.slice(0, 8).forEach(genre => {
 
         const button = document.createElement("button");
 

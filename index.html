@@ -45,13 +45,24 @@
             <div class="cursor-glow"></div>
     
             <h2>What should I watch tonight?</h2>
-            <div>
+            <div class="hero-search">
                 <input type="text" id="searchInput" placeholder="Search a movie...">
                 
                 <button id="search-bar">
                     Search
                 </button>
             </div>
+
+            <section class="random-movie">
+            
+                <button id="randomMovieBtn">
+                    Pick Random Movie
+                </button>
+            
+                <div id="randomMovieContainer"></div>
+            
+            </section>
+
             
         </section>
 
@@ -81,16 +92,6 @@
 
         <section id="moviesSection">    
             <div id="movieContainer"></div>
-        </section>
-    
-        <section class="random-movie">
-    
-            <button id="randomMovieBtn">
-                Pick Random Movie
-            </button>
-
-            <div id="randomMovieContainer"></div>
-    
         </section>
     
     </main>    

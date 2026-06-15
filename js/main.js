@@ -148,3 +148,22 @@ document.addEventListener("click", (e) => {
     }
 
 });
+
+
+/*More movies by genre button */
+let currentMovies = [];
+
+button.addEventListener("click", async () => {
+
+    currentMovies = await getMoviesByGenre(genre.id);
+
+    displayMovies(currentMovies.slice(0, 6));
+
+});
+const moreBtn = document.getElementById("moreBtn");
+
+moreBtn.addEventListener("click", () => {
+
+    displayMovies(currentMovies);
+
+});
