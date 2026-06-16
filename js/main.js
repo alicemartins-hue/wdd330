@@ -108,58 +108,38 @@ window.addEventListener("load", () => {
     }
 });
 
-document.addEventListener("click", (e) => {
-
-    if (e.target.classList.contains("save-btn")) {
-
-        let watchlist =
-            JSON.parse(localStorage.getItem("watchlist")) || [];
-
-        const movieId = Number(e.target.dataset.id);
-
-
-        if (e.target.classList.contains("saved")) {
-
-            watchlist = watchlist.filter(
-                movie => movie.id !== movieId
-            );
-
-            e.target.classList.remove("saved");
-            e.target.textContent = "♡";
-
-        } else {
-
-            const movie = {
-
-                id: movieId,
-                title: e.target.dataset.title,
-                poster_path: e.target.dataset.poster
-
-            };
-
-            watchlist.push(movie);
-
-            e.target.classList.add("saved");
-            e.target.textContent = "♡";
-
-        }
-
-        localStorage.setItem(
-            "watchlist",
-            JSON.stringify(watchlist)
-        );
-
-    }
-
-});
-
 document.addEventListener("click", async (e) => {
 
-    if (e.target.classList.contains("save-btn")) {
+    if (!e.target.classList.contains("save-btn")) return;
+
+    let watchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
+
+    const movieId = Number(e.target.dataset.id);
+
+    const movieExists =
+        watchlist.some(movie => movie.id === movieId);
+
+    if (movieExists) {
+
+        watchlist =
+            watchlist.filter(movie => movie.id !== movieId);
+
+        e.target.classList.remove("saved");
+
+        e.target.textContent = "♡";
+
+    } else {
+
+        const imdbId =
+            await getImdbId(movieId);
+
+        const details =
+            await getMovieDetails(imdbId);
 
         const movieData = {
 
-            id: Number(e.target.dataset.id),
+            id: movieId,
 
             title: e.target.dataset.title,
 
@@ -173,30 +153,19 @@ document.addEventListener("click", async (e) => {
 
         };
 
-        const imdbId =
-            await getImdbId(movieData.id);
+        watchlist.push(movieData);
 
-        const details =
-            await getMovieDetails(imdbId);
+        e.target.classList.add("saved");
 
-        let watchlist =
-            JSON.parse(localStorage.getItem("watchlist")) || [];
+        e.target.textContent = "♡";
 
-        const movieExists = watchlist.some(
-            movie => movie.id === movieData.id
-        );
+    }
 
-        if (!movieExists) {
+    localStorage.setItem(
+        "watchlist",
+        JSON.stringify(watchlist)
+    );
 
-            watchlist.push(movieData);
-
-            localStorage.setItem(
-                "watchlist",
-                JSON.stringify(watchlist)
-            );
-
-        };
-    };
 });
 
 
