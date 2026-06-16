@@ -327,7 +327,65 @@ footer {
 
 }
 
+.remove-btn {
 
+    border: none;
+    background: transparent;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    transition: .3s;
+
+}
+
+.remove-btn:hover {
+
+    transform: scale(1.2);
+
+}
+
+.moviecard {
+
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    gap: 25px;
+    
+    width: 80%;
+    
+    margin: 20px auto;
+    padding: 20px;
+    
+    background: #1e1e1e;
+    
+    border-radius: 15px;
+
+}
+
+.remove-btn {
+
+    position: absolute;
+
+    top: 15px;
+    right: 15px;
+
+    border: none;
+    background: rgba(0, 0, 0, .6);
+
+    border-radius: 50%;
+
+    width: 40px;
+    height: 40px;
+
+    cursor: pointer;
+
+}
+
+.imgList img{
+    width: 120px;
+    border-radius: 10px;
+}
 
 
 

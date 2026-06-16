@@ -154,7 +154,6 @@ document.addEventListener("click", (e) => {
 
 });
 
-
 document.addEventListener("click", (e) => {
 
     if (e.target.classList.contains("save-btn")) {
@@ -170,14 +169,21 @@ document.addEventListener("click", (e) => {
         let watchlist =
             JSON.parse(localStorage.getItem("watchlist")) || [];
 
-        watchlist.push(movieData);
-
-        localStorage.setItem(
-            "watchlist",
-            JSON.stringify(watchlist)
+        const movieExists = watchlist.some(
+            movie => movie.id === movieData.id
         );
 
-    }
+        if (!movieExists) {
 
+            watchlist.push(movieData);
+
+            localStorage.setItem(
+                "watchlist",
+                JSON.stringify(watchlist)
+            );
+
+        };
+    };
 });
+
 

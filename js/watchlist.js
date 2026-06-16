@@ -19,11 +19,44 @@ watchlist.forEach(movie => {
 
         <div class="cardlist">
             <h3>${movie.title}</h3>
-            <p>${movie.description || "No description available."} </p>
-            <p>${movie.time || "Runtime unavailable."}</p>
+            <p class="description">${movie.description || "No description available."} </p>
+            <p class="runtime">${movie.time || "Runtime unavailable."}</p>
         </div>
+        <button class="remove-btn">
+             🗑️
+        </button>
     `;
+        
+    const removeBtn = card.querySelector(".remove-btn");
+
+    removeBtn.addEventListener("click", () => {
+
+        removeMovie(movie.id);
+
+    });
+
 
     container.appendChild(card);
 
 });
+
+
+
+function removeMovie(id) {
+
+    let watchlist =
+        JSON.parse(localStorage.getItem("watchlist")) || [];
+
+    watchlist =
+        watchlist.filter(movie => movie.id !== id);
+
+    localStorage.setItem(
+        "watchlist",
+        JSON.stringify(watchlist)
+    );
+
+    location.reload();
+
+}
+
+
