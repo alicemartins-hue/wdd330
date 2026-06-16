@@ -6,6 +6,8 @@ import { displayRandomMovie } from "./ui.js";
 import { getPopularMovies } from "./apiService.js";
 import { displayPopularMovies } from "./ui.js";
 import { displayHeroMovie } from "./ui.js";
+import { getImdbId } from "./apiService.js";
+import { getMovieDetails } from "./apiService.js";
 
 
 async function loadGenres() {
@@ -108,62 +110,74 @@ window.addEventListener("load", () => {
     }
 });
 
-
-/*Watchlist button */
 document.addEventListener("click", (e) => {
 
     if (e.target.classList.contains("save-btn")) {
 
-        console.log("CLICK");
+        let watchlist =
+            JSON.parse(localStorage.getItem("watchlist")) || [];
 
-    }
-
-});
-
-const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
-localStorage.setItem("watchlist", JSON.stringify(watchlist));
-
-document.addEventListener("click", (e) => {
-
-    if (e.target.classList.contains("save-btn")) {
+        const movieId = Number(e.target.dataset.id);
 
         if (e.target.classList.contains("saved")) {
 
-            // Dessalva
+            watchlist = watchlist.filter(
+                movie => movie.id !== movieId
+            );
+
             e.target.classList.remove("saved");
             e.target.textContent = "♡";
 
-            console.log("Filme removido da watchlist");
-
         } else {
 
-            // Salva
+            const movie = {
+
+                id: movieId,
+                title: e.target.dataset.title,
+                poster_path: e.target.dataset.poster
+
+            };
+
+            watchlist.push(movie);
+
             e.target.classList.add("saved");
             e.target.textContent = "♡";
 
-            console.log("Filme adicionado à watchlist");
-
         }
+
+        localStorage.setItem(
+            "watchlist",
+            JSON.stringify(watchlist)
+        );
 
     }
 
 });
 
 
-/*More movies by genre button */
-let currentMovies = [];
+document.addEventListener("click", (e) => {
 
-button.addEventListener("click", async () => {
+    if (e.target.classList.contains("save-btn")) {
 
-    currentMovies = await getMoviesByGenre(genre.id);
+        const movieData = {
 
-    displayMovies(currentMovies.slice(0, 6));
+            id: Number(e.target.dataset.id),
+            title: e.target.dataset.title,
+            poster_path: e.target.dataset.poster
+
+        };
+
+        let watchlist =
+            JSON.parse(localStorage.getItem("watchlist")) || [];
+
+        watchlist.push(movieData);
+
+        localStorage.setItem(
+            "watchlist",
+            JSON.stringify(watchlist)
+        );
+
+    }
 
 });
-const moreBtn = document.getElementById("moreBtn");
 
-moreBtn.addEventListener("click", () => {
-
-    displayMovies(currentMovies);
-
-});

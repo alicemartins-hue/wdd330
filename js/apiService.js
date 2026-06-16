@@ -1,6 +1,8 @@
 const API_KEY = "5d54260b02998bfee1ca3dac8071af1a";
 const BASE_URL = "https://api.themoviedb.org/3";
 
+const API_KEY2 = "cd1577a1";
+
 export async function getGenres() {
 
     const response = await fetch(
@@ -45,6 +47,30 @@ export async function getPopularMovies() {
     const data = await response.json();
 
     return data.results;
+
+}
+
+export async function getImdbId(movieId) {
+
+    const response = await fetch(
+        `${BASE_URL}/movie/${movieId}/external_ids?api_key=${API_KEY}`
+    );
+
+    const data = await response.json();
+
+    return data.imdb_id;
+
+}
+
+export async function getMovieDetails(imdbId) {
+
+    const response = await fetch(
+        `https://www.omdbapi.com/?apikey=${API_KEY2}&i=${imdbId}`
+    );
+
+    const data = await response.json();
+
+    return data;
 
 }
 
