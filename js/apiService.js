@@ -74,4 +74,15 @@ export async function getMovieDetails(imdbId) {
 
 }
 
+export async function getImdbId(movieId) {
+
+    const response = await fetch(
+        `${BASE_URL}/movie/${movieId}/external_ids?api_key=${API_KEY}`
+    );
+
+    const data = await response.json();
+
+    return data.imdb_id;
+
+}
 

@@ -387,6 +387,14 @@ footer {
     border-radius: 10px;
 }
 
+.watchlist h2{
+    color: var(--colorlight);
+    display: flex;
+    justify-content: center;
+    text-decoration: underline var(--colorcontrast);
+    
+}
+
 
 
 

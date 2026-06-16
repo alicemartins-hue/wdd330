@@ -1,13 +1,11 @@
-import { getGenres } from "./apiService.js";
-import { displayGenres } from "./ui.js";
-import { searchMovies } from "./apiService.js";
-import { displayMovies } from "./ui.js";
-import { displayRandomMovie } from "./ui.js";
-import { getPopularMovies } from "./apiService.js";
-import { displayPopularMovies } from "./ui.js";
-import { displayHeroMovie } from "./ui.js";
-import { getImdbId } from "./apiService.js";
-import { getMovieDetails } from "./apiService.js";
+import {
+    displayGenres, displayMovies, displayRandomMovie,
+    displayPopularMovies, displayHeroMovie
+} from "./ui.js";
+import {
+    getGenres, searchMovies, getPopularMovies, getImdbId,
+    getMovieDetails
+} from "./apiService.js";
 
 
 async function loadGenres() {
@@ -119,6 +117,7 @@ document.addEventListener("click", (e) => {
 
         const movieId = Number(e.target.dataset.id);
 
+
         if (e.target.classList.contains("saved")) {
 
             watchlist = watchlist.filter(
@@ -154,17 +153,31 @@ document.addEventListener("click", (e) => {
 
 });
 
-document.addEventListener("click", (e) => {
+document.addEventListener("click", async (e) => {
 
     if (e.target.classList.contains("save-btn")) {
 
         const movieData = {
 
             id: Number(e.target.dataset.id),
+
             title: e.target.dataset.title,
-            poster_path: e.target.dataset.poster
+
+            poster_path: e.target.dataset.poster,
+
+            imdbId: imdbId,
+
+            description: details.Plot,
+
+            time: details.Runtime
 
         };
+
+        const imdbId =
+            await getImdbId(movieData.id);
+
+        const details =
+            await getMovieDetails(imdbId);
 
         let watchlist =
             JSON.parse(localStorage.getItem("watchlist")) || [];
