@@ -28,10 +28,10 @@ export function displayMovies(movies) {
             data-poster="${movie.poster_path}">♡</button>
             `;
         
-        card.addEventListener("click", () => {
+        card.addEventListener("click", (e) => {
 
             console.log("CLICK", movie.title);
-
+            if (e.target.closest(".save-btn")) return;
             openMovieModal(movie);
 
         });
@@ -92,7 +92,8 @@ export function displayRandomMovie(movie) {
             
     `;
 
-    card.addEventListener("click", () => {
+    card.addEventListener("click", (e) => {
+        if (e.target.closest(".save-btn")) return;
 
         openMovieModal(movie);
 
@@ -128,8 +129,8 @@ export function displayPopularMovies(movies) {
             
         `;
 
-        card.addEventListener("click", () => {
-
+        card.addEventListener("click", (e) => {
+            if (e.target.closest(".save-btn")) return;
             openMovieModal(movie);
 
         });
@@ -165,7 +166,9 @@ export function displayHeroMovie(movies) {
             data-poster="${movie.poster_path}">♡</button>
             `;
         
-        card.addEventListener("click", () => {
+        card.addEventListener("click", (e) => {
+
+            if (e.target.closest(".save-btn")) return;
 
             openMovieModal(movie);
 
