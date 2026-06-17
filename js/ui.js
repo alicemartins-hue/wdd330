@@ -1,4 +1,5 @@
 import { getMoviesByGenre } from "./apiService.js";
+import { openMovieModal } from "./movieModal.js";
 
 
 export function displayMovies(movies) {
@@ -26,6 +27,14 @@ export function displayMovies(movies) {
             data-title="${movie.title}"
             data-poster="${movie.poster_path}">♡</button>
             `;
+        
+        card.addEventListener("click", () => {
+
+            console.log("CLICK", movie.title);
+
+            openMovieModal(movie);
+
+        });
         
         container.appendChild(card);
     })
@@ -83,6 +92,12 @@ export function displayRandomMovie(movie) {
             
     `;
 
+    card.addEventListener("click", () => {
+
+        openMovieModal(movie);
+
+    });
+
     container.appendChild(card);
 
 }
@@ -112,6 +127,12 @@ export function displayPopularMovies(movies) {
             data-poster="${movie.poster_path}">♡</button>
             
         `;
+
+        card.addEventListener("click", () => {
+
+            openMovieModal(movie);
+
+        });
 
         container.appendChild(card);
     });
@@ -143,6 +164,12 @@ export function displayHeroMovie(movies) {
             data-title="${movie.title}"
             data-poster="${movie.poster_path}">♡</button>
             `;
+        
+        card.addEventListener("click", () => {
+
+            openMovieModal(movie);
+
+        });
 
         container.appendChild(card);
     })

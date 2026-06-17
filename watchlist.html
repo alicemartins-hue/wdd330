@@ -34,7 +34,6 @@
         <nav id="nav-menu">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="movie-details.html">Movies</a></li>
                 <li><a href="watchlist.html" class="shine">Watchlist</a></li>
             </ul>
         </nav>
@@ -63,8 +62,35 @@
             © 2026 Movie Picker | Alice Candido Martins | BYU-Pathway WDD330
         </p>
     </footer>
+
+<div id="movieModal">
+
+    <div class="modal-content">
+
+        <button class="close-btn">✖</button>
+
+        <img class="modal-poster">
+
+        <div class="movie-info">
+
+            <h2 class="modal-title"></h2>
+
+            <p class="modal-description"></p>
+
+            <p class="modal-runtime"></p>
+
+            <p class="modal-director"></p>
+
+            <p class="modal-actors"></p>
+
+        </div>
+
+    </div>
+
+</div>
     <script type="module" src="./js/watchlist.js"></script>
     <script src="js/button.js"></script>
+    <script type="module" src="./js/movieModal.js"></script>
 </body>
 
 </html>
