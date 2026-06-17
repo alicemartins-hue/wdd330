@@ -172,6 +172,7 @@ footer {
 .modal-poster {
 
     width: 220px;
+    height: 330px;
     border-radius: 15px;
     object-fit: cover;
 
@@ -276,6 +277,11 @@ footer {
     padding: 2rem;
 }
 
+#randomMovieBtn {
+    background-color: #c95527;
+    color: white;
+}
+
 .random-movie button{
     padding: .6rem;
     border: transparent;
@@ -324,6 +330,7 @@ footer {
     transition: transform 0.4s ease;
     position: relative;
     width: fit-content;
+    overflow: hidden;
 }
 
 .movie-card:hover {
@@ -362,7 +369,7 @@ footer {
 /* Genre Buttons */
 .genres{
     background-color: var(--colorlight);
-    color: var(--colorcontrast);
+    color: var(--colorbase);
     padding: 5rem;
 }
 #genreContainer button {

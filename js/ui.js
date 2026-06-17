@@ -20,6 +20,8 @@ export function displayMovies(movies) {
             <img
             src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
             alt="${movie.title}"
+            width ="300"
+            height = "450"
             >
 
             <h3>${movie.title}</h3>
@@ -81,6 +83,8 @@ export function displayRandomMovie(movie) {
         <img
             src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
             alt="${movie.title}"
+            width ="300"
+            height = "450"
         >
 
         <h3>${movie.title}</h3>
@@ -118,6 +122,9 @@ export function displayPopularMovies(movies) {
         card.innerHTML = `
             <img
                 src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+                alt="${movie.title}"
+                width ="300"
+                height = "450"
             >
 
             <h3>${movie.title}</h3>
@@ -156,6 +163,8 @@ export function displayHeroMovie(movies) {
             <img
             src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
             alt="${movie.title}"
+            width ="300"
+            height = "450"
             >
 
             <h3>${movie.title}</h3>
