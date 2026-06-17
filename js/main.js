@@ -84,29 +84,6 @@ document.addEventListener("mousemove", (e) => {
     glow.style.top = e.clientY + "px";
 });
 
-
-//css animation efects//
-window.addEventListener("load", () => {
-    const container = document.getElementById("popcorn-container");
-
-    for (let i = 0; i < 50; i++) {
-        const popcorn = document.createElement("div");
-
-        popcorn.classList.add("popcorn");
-        popcorn.textContent = "🍿";
-
-        popcorn.style.left = Math.random() * 100 + "vw";
-        popcorn.style.animationDelay = Math.random() * 2 + "s";
-        popcorn.style.fontSize = 1 + Math.random() * 2 + "rem";
-
-        container.appendChild(popcorn);
-
-        setTimeout(() => {
-            popcorn.remove();
-        }, 6000);
-    }
-});
-
 document.addEventListener("click", async (e) => {
 
     if (!e.target.classList.contains("save-btn")) return;
