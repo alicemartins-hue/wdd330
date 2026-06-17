@@ -1,7 +1,7 @@
 *{
     --colorbase : #2A2529;
     --colorlight : #F3F0E7;
-    --colorcontrast : #f0713f;
+    --colorcontrast :#b1512b;
     --primaryfont : "Outfit", sans-serif;
     --secondfont : "Urbanist", sans-serif;
     margin: 0;
@@ -70,7 +70,7 @@ nav a:hover::after {
 }
 
 .shine{
-    color: var(--colorcontrast);
+    color: #dd8664;
 }
 
 .logo {
@@ -278,7 +278,7 @@ footer {
 }
 
 #randomMovieBtn {
-    background-color: #c95527;
+    background-color: var(--colorcontrast);
     color: white;
 }
 
@@ -296,7 +296,6 @@ footer {
 #randomMovieBtn:hover {
     transform: translateY(-5px);
     box-shadow: 0 10px 20px rgba(240, 113, 63, 0.4);
-    color: var(--colorbase);
 }
 
 #randomMovieContainer .movie-card img{
