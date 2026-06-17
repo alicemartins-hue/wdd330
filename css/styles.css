@@ -466,6 +466,7 @@ footer {
 
 .imgList img{
     width: 120px;
+    height: auto;
     border-radius: 10px;
 }
 

@@ -12,8 +12,10 @@ watchlist.forEach(movie => {
     card.innerHTML = `
         <div class="imgList">
         <img
-            src="https://image.tmdb.org/t/p/w300${movie.poster_path}"
+            src="https://image.tmdb.org/t/p/w154${movie.poster_path}"
             alt="${movie.title}"
+            width ="300"
+            height = "450"
         >
         </div>
 
