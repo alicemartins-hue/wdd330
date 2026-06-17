@@ -30,7 +30,6 @@ export function displayMovies(movies) {
         
         card.addEventListener("click", (e) => {
 
-            console.log("CLICK", movie.title);
             if (e.target.closest(".save-btn")) return;
             openMovieModal(movie);
 
@@ -57,7 +56,6 @@ export function displayGenres(genres) {
         button.addEventListener("click", async () => {
 
             const movies = await getMoviesByGenre(genre.id);
-            console.log(movies);
 
             displayMovies(movies);
         });

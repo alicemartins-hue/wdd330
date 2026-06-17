@@ -44,7 +44,6 @@ searchBtn.addEventListener("click", async () => {
     if (!query) return;
 
     const movies = await searchMovies(query);
-    console.log("filmes encontrados", movies);
     displayHeroMovie(movies);
 
 });
