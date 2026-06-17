@@ -13,7 +13,7 @@ export function displayMovies(movies) {
 
     container.innerHTML = "";
 
-    movies.slice(0,6).forEach(movie => {
+    movies.slice(0,20).forEach(movie => {
         const card = document.createElement("div");
         card.classList.add("movie-card");
         card.innerHTML = `
@@ -151,7 +151,7 @@ export function displayHeroMovie(movies) {
 
     container.innerHTML = "";
 
-    movies.slice(0, 6).forEach(movie => {
+    movies.slice(0, 10).forEach(movie => {
         const card = document.createElement("div");
         card.classList.add("movie-card");
         card.innerHTML = `
@@ -177,3 +177,10 @@ export function displayHeroMovie(movies) {
         container.appendChild(card);
     })
 }
+
+const button = document.getElementById("menu-btn");
+const nav = document.getElementById("nav-menu");
+
+button.addEventListener("click", () => {
+    nav.classList.toggle("active");
+});
